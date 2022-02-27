@@ -1,7 +1,6 @@
 import React from 'react';
 
-function Modal({currentPhoto}) {
-
+function Modal({onClose, currentPhoto}) {
     const {name, category, description, index} = currentPhoto;
 
     return (
@@ -9,16 +8,11 @@ function Modal({currentPhoto}) {
             <div className="modalContainer">
                 <h3 className="modalTitle">{name}</h3>
                 <img
-                    src={require(`../../assets/small/${category}/${i}.jpg`)}
-                    alt={image.name}
-                    className="img-thumbnail mx-1"
-                    onClick={() => toggleModal(image, i)}
-                    key={image.name}
+                    src={require(`../../assets/small/${category}/${index}.jpg`)}
+                    alt="current category"
                 />
-                <p>
-                    Photo Description
-                </p>
-                <button type="button">
+                <p>{description}</p>
+                <button type="button" onClick={onClose}>
                     Close this modal
                 </button>
             </div>
